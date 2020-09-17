@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
   end
 
   def activate_student
-    @student = set_student
+    @student = set_student # self.set_student will fail to call the private method
     @student.active ? @student.update(active: false) : @student.update(active: true)
     redirect_to action: "show"
   end
